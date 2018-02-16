@@ -23,6 +23,14 @@ class DemographyService
         }
         return self::$cities;
     }
+    
+    public function getYears()
+    {
+        if (self::$years == null) {
+            self::$years = $this->extractYears();
+        }
+        return self::$years;
+    }
 
     public function getCitiesDemographics(array $cityNames)
     {
@@ -53,14 +61,6 @@ class DemographyService
         }
 
         return $demography;
-    }
-
-    public function getYears()
-    {
-        if (self::$years == null) {
-            self::$years = $this->extractYears();
-        }
-        return self::$years;
     }
 
     private function extractCities()
